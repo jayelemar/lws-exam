@@ -1,112 +1,235 @@
+import Header from "@/components/layout/Header";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <main>
+        <div className="flex flex-col items-center justify-start w-full pb-14 gap-[59px] bg-gray-900 ">
+        <div className="flex flex-col items-center justify-start w-full">
+          <div className="h-[1052px] w-full relative">
+            {/* Hero Background Image */}
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+              src="/images/img_image_1.png"
+              alt="imageone_one"
+              width={1920}
+              height={1080}
+              className="justify-center h-[1052px] w-screen left-0 bottom-0 right-0 top-0 m-auto object-cover absolute"
             />
-          </a>
+
+            <div className="justify-center h-[1052px] w-full left-0 bottom-0 right-0 top-0 m-auto absolute">
+              {/* Hero Shadow */}
+              <Image
+                src="/images/img_group_1.png"
+                alt="image"
+                width={4320}
+                height={3156}
+                className="justify-center h-[1052px] w-full left-0 bottom-0 right-0 top-0 m-auto object-cover absolute"
+              />
+              <div className="container flex flex-col items-start justify-center  h-full left-0 bottom-0 right-0 top-0 m-auto absolute mx-24">
+
+                <h1 className="mt-64">
+                  Kimetsu no Yaiba
+                </h1>
+                <div className="flex flex-row justify-start items-end ml-1.5">
+                  <Image 
+                    src="/images/img_frame.svg" 
+                    alt="image_one" 
+                    width={20}
+                    height={19}
+                    className="h-[21px] w-[21px] mb-px" />
+                  <h2 className="mb-px ml-1">
+                    5.0
+                  </h2>
+                  <p className="ml-[19px]">
+                    Category: Adventure fiction, Dark fantasy, Martial Arts
+                  </p>
+                </div>
+                <p className="w-1/2 mt-[22px] ml-1.5">
+                  Demon Slayer: Kimetsu no Yaiba is a Japanese manga series written and illustrated by Koyoharu Gotouge.
+                  It follows teenage Tanjiro Kamado, who strives to become a demon slayer after his family was
+                  slaughtered and his younger sister Nezuko turned into a demon.
+                </p>
+                <div className="flex flex-row justify-start mt-2.5 ml-1.5 gap-[17px]">
+                  <div
+                    className="gp-1 font-avenirltstd min-w-[142px]"
+                  >
+                    <Image src="/images/img_frame_white_a700.svg" alt="Frame" width={29} height={29} />
+                    Watch Now!
+                  </div>
+                  <div>
+                    <Image src="/images/img_frame_white_a700_44x48.svg" alt="" width={27} height={27}/>
+                  </div>
+                </div>
+                <div className="flex flex-row justify-between items-center w-full mt-[312px] ml-[5px]">
+                  <div className="flex flex-row justify-center w-[18%]">
+                    <div className="flex flex-col items-start justify-start w-full gap-0.5">
+                      <div className="flex flex-row justify-between w-full">
+                        <h3>
+                          Overview
+                        </h3>
+                        <p>
+                          Episodes
+                        </p>
+                        <p>
+                          Details
+                        </p>
+                      </div>
+                      <div className="h-[3px] w-[24%] ml-1.5 bg-cyan-900_01" />
+                    </div>
+                  </div>
+                  <div className="flex w-[185px] h-px" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <div className="flex flex-col items-end justify-start w-full">
+          <div className="flex flex-col items-start justify-start w-[94%] mt-[59px] gap-14 overflow-auto">
+            <div className="flex flex-row justify-start w-full mx-auto max-w-[1581px]">
+              <div className="flex flex-col items-start justify-start w-[86%] gap-[22px]">
+                <h2>
+                  <span className="text-white-A700">Trending </span>
+                  <span className="text-amber_300">this week</span>
+                </h2>
+                <div className="flex flex-row justify-start w-full gap-4">
+                  <div className="h-[291px] w-[39%] relative">
+                    <Image
+                      src="/images/img_rectangle_9.png"
+                      alt="image_two"
+                      width={1548}
+                      height={873}
+                      className="justify-center h-[291px] w-full left-0 bottom-0 right-0 top-0 m-auto object-cover absolute rounded-[21px]"
+                    />
+                    <div className="flex flex-row justify-center w-full h-full left-0 bottom-0 right-0 top-0 p-[18px] m-auto bg-gradient absolute rounded-[21px]">
+                      <div className="flex flex-row justify-center w-[94%] mt-[204px] mx-3.5">
+                        <div className="flex flex-col items-start justify-start w-full">
+                          <h3 className="z-[1]">
+                            Attack On Titan
+                          </h3>
+                          <div className="flex flex-row justify-between items-start w-full mt-[-2px]">
+                            <p className="mt-[5px] !text-gray-600">
+                              Category: Adventure fiction, Dark fantasy, Martial Arts
+                            </p>
+                            <div className="flex flex-row justify-start items-center gap-1">
+                              <Image 
+                                src="/images/img_frame.svg" 
+                                alt="image_three" 
+                                className="h-[21px] w-[21px]"
+                                width={20}
+                                height={19}
+                              />
+                              <h4>5.0</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-row w-[78%] gap-4">
+                    <div className="h-[291px] w-1/2 relative">
+                      <Image
+                        src="/images/img_rectangle_10.png"
+                        alt="image"
+                        className="justify-center h-[291px] w-full left-0 bottom-0 right-0 top-0 m-auto object-cover absolute rounded-[21px]"
+                        width={1540}
+                        height={873}
+                      />
+                      <div className="flex flex-row justify-center w-full h-full left-0 bottom-0 right-0 top-0 p-[18px] m-auto bg-gradient absolute rounded-[21px]">
+                        <div className="flex flex-row justify-center w-[98%] mt-[207px] mx-1">
+                          <div className="flex flex-row justify-between items-center w-full">
+                            <div className="flex flex-col items-start justify-start gap-px">
+                              <h5>
+                                Jujutsu Kaisen
+                              </h5>
+                              <p className="!text-gray-600">
+                                Category: Adventure fiction, Martial Arts
+                              </p>
+                            </div>
+                            <div className="flex flex-row justify-start items-center gap-1">
+                              <Image 
+                                src="/images/img_frame.svg" 
+                                alt="image_one" 
+                                className="h-[21px] w-[21px]"
+                                width={20}
+                                height={19}
+                              />
+                              <h6>5.0</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="h-[291px] w-1/2 relative">
+                      <Image
+                        src="/images/img_rectangle_11.png"
+                        alt="image"
+                        className="justify-center h-[291px] w-full left-0 bottom-0 right-0 top-0 m-auto object-cover absolute rounded-[21px]"
+                        width={1540}
+                        height={873}
+                      />
+                      <div className="flex flex-row justify-center w-full h-full left-0 bottom-0 right-0 top-0 p-[18px] m-auto bg-gradient absolute rounded-[21px]">
+                        <div className="flex flex-row justify-center w-[98%] mt-[204px] mx-1">
+                          <div className="flex flex-col items-start justify-start w-full">
+                            <h4 className="z-[1]">
+                              One Piece
+                            </h4>
+                            <div className="flex flex-row justify-between items-start w-full mt-[-3px]">
+                              <p className="mt-[5px] !text-gray-600">
+                                Category: Adventure fiction, Comedy, Family
+                              </p>
+                              <div className="flex flex-row justify-start items-center gap-1">
+                                <Image 
+                                  src="/images/img_frame.svg" 
+                                  alt="image_one" 
+                                  className="h-[21px] w-[21px]"
+                                  width={20}
+                                  height={19}
+                                />
+                                <p>5.0</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-row justify-start w-full mx-auto max-w-[1261px]">
+              <div className="flex flex-col items-start justify-start w-full gap-[35px]">
+                <h2>
+                  Throwback Anime!
+                </h2>
+                <div className="flex flex-row justify-start w-full gap-4">
+                  <Image
+                    src="/images/img_rectangle_24.png"
+                    alt="image_four"
+                    className="w-[33%] object-cover rounded-[30px]"
+                    width={1227}
+                    height={1281}
+                  />
+                  <div className="flex flex-col items-center justify-start w-[33%]">
+                    <Image
+                      src="/images/img_rectangle_25.png"
+                      alt="image_five"
+                      className="w-full object-cover rounded-[30px]"
+                      width={1227}
+                      height={1281}
+                    />
+                  </div>
+                  <Image
+                    src="/images/img_rectangle_26.png"
+                    alt="image_six"
+                    className="w-[33%] object-cover rounded-[30px]"
+                    width={1227}
+                    height={1281}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );
