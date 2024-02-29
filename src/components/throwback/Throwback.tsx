@@ -1,22 +1,49 @@
 import React from 'react'
 import Image from "next/image";
 
+const videos = [
+  {
+    id: 1,
+    imageSrc: '/images/img_rectangle_24.png',
+    text: 'image_four',
+  },
+  {
+    id: 2,
+    imageSrc: '/images/img_rectangle_25.png',
+    text: 'image_five',
+  },
+  {
+    id: 3,
+    imageSrc: '/images/img_rectangle_26.png',
+    text: 'image_six',
+  }
+]
+
 const Throwback = () => {
   return (
-    <section className="flex flex-row justify-start w-full mx-auto max-w-[1261px]">
-    <div className="flex flex-col items-start justify-start w-full gap-[35px]">
+    <section className="w-full flex justify-center">
+    <div className="flex flex-col container mx-auto xl:mx-0">
       <h2>
         Throwback Anime!
       </h2>
-      <div className="flex flex-row justify-start w-full gap-4">
-        <Image
-          src="/images/img_rectangle_24.png"
-          alt="image_four"
-          className="w-[33%] object-cover rounded-[30px]"
-          width={1227}
-          height={1281}
-        />
-        <div className="flex flex-col items-center justify-start w-[33%]">
+      <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-8">
+        {videos.map((video) => {
+          const {id, imageSrc, text} = video
+          return (
+            <Image key={id}
+            src={imageSrc}
+            alt={text}
+            className="w-full object-cover rounded-[30px]"
+            width={1227}
+            height={1281}
+          />
+          )
+        })}
+
+
+
+        
+        {/* <div className="flex flex-col items-center justify-start">
           <Image
             src="/images/img_rectangle_25.png"
             alt="image_five"
@@ -31,7 +58,7 @@ const Throwback = () => {
           className="w-[33%] object-cover rounded-[30px]"
           width={1227}
           height={1281}
-        />
+        /> */}
       </div>
     </div>
   </section>

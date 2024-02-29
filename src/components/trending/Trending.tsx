@@ -13,12 +13,14 @@ const Trending = () => {
         <span className="text-amber-300">this week</span>
       </h2>
       
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {videos.map((video) => {
-          return (
-            <TrendingItem key={video.id} video={video}/>
-          )
-        })}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6  overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-screen">
+          {videos.map((video) => {
+            return (
+              <TrendingItem key={video.id} video={video}/>
+            )
+          })}
+        </div>
       </div>
     </div>
   </section>
