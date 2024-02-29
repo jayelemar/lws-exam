@@ -23,7 +23,7 @@ const Throwback = () => {
   return (
     <section className="w-full flex justify-center">
     <div className="flex flex-col container mx-auto xl:mx-0">
-      <h2>
+      <h2 className='text-2xl font-bold mb-4'>
         Throwback Anime!
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-8">

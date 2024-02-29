@@ -19,5 +19,5 @@ export const videos = [
     title: 'Jujutsu Kaisen',
     category: 'Adventure fiction, Martial Arts',
     rating: '5.0'
-  }
+  },
 ]

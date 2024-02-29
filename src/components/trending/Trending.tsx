@@ -1,9 +1,12 @@
+'use client';
 import React from 'react'
 
-import { videos } from './TrendingData';
-import TrendingItem from './TrendingItem';
+
+
+import TrendingCarousel from './TrendingCarousel';
 
 const Trending = () => {
+
   return (
     <section className='w-full flex justify-center'>
     <div className="flex flex-col container mx-auto xl:mx-0">
@@ -12,16 +15,7 @@ const Trending = () => {
         <span className="text-white-700">Trending </span>
         <span className="text-amber-300">this week</span>
       </h2>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6  overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-screen">
-          {videos.map((video) => {
-            return (
-              <TrendingItem key={video.id} video={video}/>
-            )
-          })}
-        </div>
-      </div>
+      <TrendingCarousel />
     </div>
   </section>
   )
