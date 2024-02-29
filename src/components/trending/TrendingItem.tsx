@@ -18,13 +18,13 @@ const TrendingItem:FC<TrendingItemProps> = ({ video }) => {
   const {id, imageSrc, title, category, rating} = video
 
   return (
-    <div key={id} className="h-[291px] relative w-full cursor-pointer ">
+    <div key={id} className="h-[291px] min-w-[500px] max-w-[500px] relative cursor-pointer ">
       <Image
         src={imageSrc}
         alt="image_two"
         width={1548}
         height={873}
-        className="justify-center h-[291px] w-full left-0  object-cover rounded-[21px]"
+        className="justify-center h-[291px] min-w-[500px] max-w-[500px] left-0  object-cover rounded-[21px]"
       />
       {/* Image Shadow */}
       <div className="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-b from-transparent to-black rounded-[21px]" />
