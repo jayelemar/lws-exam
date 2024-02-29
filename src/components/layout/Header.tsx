@@ -5,7 +5,7 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <header className="flex flex-row justify-center items-center w-full ml-1.5 top-[68px] left-0 z-50 fixed ">
+    <header className="flex flex-row justify-center items-center w-full top-[68px] left-0 z-50 fixed ">
       <div className="container mx-auto">
         <div className="flex justify-between items-center relative">
           <h1 className='text-2xl font-bold'>
@@ -35,7 +35,7 @@ const Header = () => {
 
             </div>
             {/* Mobile Nav */}
-            <AlignRight  className='flex xl:hidden cursor-pointer'/>
+            <AlignRight  className='flex xl:hidden cur'/>
           </div>
         </div>
       </div>
