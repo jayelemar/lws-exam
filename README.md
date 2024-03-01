@@ -42,21 +42,21 @@ React.js.
 main repository.
 
 ## Evaluation Criteria: Your exam will be evaluated based on the following criteria:
-• Correct implementation of the required features.
-• Code quality, including adherence to best practices, clean code principles, and
+1. Correct implementation of the required features.
+2. Code quality, including adherence to best practices, clean code principles, and
 proper separation of concerns.
-• Proper use of Laravel for the backend and Next.js or React.js for the frontend.
-• User interface design and adherence to the wireframe.
-• Correct implementation of authentication system, blog post creation, retrieval,
+3. Proper use of Laravel for the backend and Next.js or React.js for the frontend.
+4. User interface design and adherence to the wireframe.
+5. Correct implementation of authentication system, blog post creation, retrieval,
 update, and deletion.
-• Proper error handling and form validation.
-• Documentation and comments to explain your code and any additional decisions
+6. Proper error handling and form validation.
+7. Documentation and comments to explain your code and any additional decisions
 made.
 
 ## Note:
-• You are allowed to use any additional libraries or packages to aid in
+1. You are allowed to use any additional libraries or packages to aid in
 development.
-• Make sure to include clear instructions on how to run and test your application in
+2. Make sure to include clear instructions on how to run and test your application in
 the project's README file.
-• Remember to commit and push your code regularly.
-• You have a time limit of [specify the time limit here] to complete the exam.
+3. Remember to commit and push your code regularly.
+4. You have a time limit of [specify the time limit here] to complete the exam.
