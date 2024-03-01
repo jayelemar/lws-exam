@@ -22,9 +22,9 @@ const TrendingCarousel = () => {
           className="gap-4"
         >
           <CarouselContent className='min-w-[500px] max-w-[500px] gap-4'>
-            {carouselVideos.map((video) => {
+            {carouselVideos.map((video, index) => {
               return (
-                <CarouselItem key={video.id}>
+                <CarouselItem key={index}>
                   <TrendingItem  video={video}/>
                 </CarouselItem>
               )
