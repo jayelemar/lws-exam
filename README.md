@@ -20,17 +20,43 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Features that I implemented
+Responsive Design
 
-To learn more about Next.js, take a look at the following resources:
+Instructions:
+1. Create a git repository named "lws-exam”.
+2. Build the web application based on the wireframe using Laravel and either Next.js or
+React.js.
+3. Ensure that you implement the following features:
+• Authentication system (signup, login, logout)
+• Create new anime
+• Display a list of anime
+• Show individual anime
+• Update existing anime
+• Delete anime
+4. Use appropriate routing and state management techniques.
+5. Implement proper form validation and error handling.
+6. Write clean, maintainable, and well-documented code.
+7. Commit your code regularly and push to the "feature/yourname" branch.
+8. Once you have completed the exam, create a pull request from your branch to the
+main repository.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Evaluation Criteria: Your exam will be evaluated based on the following criteria:
+• Correct implementation of the required features.
+• Code quality, including adherence to best practices, clean code principles, and
+proper separation of concerns.
+• Proper use of Laravel for the backend and Next.js or React.js for the frontend.
+• User interface design and adherence to the wireframe.
+• Correct implementation of authentication system, blog post creation, retrieval,
+update, and deletion.
+• Proper error handling and form validation.
+• Documentation and comments to explain your code and any additional decisions
+made.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Note:
+• You are allowed to use any additional libraries or packages to aid in
+development.
+• Make sure to include clear instructions on how to run and test your application in
+the project's README file.
+• Remember to commit and push your code regularly.
+• You have a time limit of [specify the time limit here] to complete the exam.
