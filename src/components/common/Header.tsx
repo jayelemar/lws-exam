@@ -40,9 +40,9 @@ const Header = () => {
       `${
         header 
           ? "py-4 bg-[#191919]/90" 
-          : "flex flex-row justify-center items-center  top-[68px] left-0 z-50  "
-      } fixed top-0 z-30 transition-all w-full
-    ${pathname === '/' && 'bg-transparent '}`
+          : "flex flex-row justify-center items-center  top-[68px] left-0 z-50 bg-transparent"
+      } fixed top-0 z-30 transition-all w-full bg-[#191919]/90
+    ${pathname === '/'}`
     }
   >
     {/* <header className=" "> */}
