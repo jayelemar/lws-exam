@@ -54,11 +54,11 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className="w-full h-[90vh]">
+    <div className="w-full h-300px max-h-[500px]">
       <Card className='p-6 pb-8'>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className=' flex flex-col' >
-            <div className='mb-40'>
+            <div className='mb-24'>
             <FormField
               control={form.control}
               name="name"

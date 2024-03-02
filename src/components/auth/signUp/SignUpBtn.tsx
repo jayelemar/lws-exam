@@ -8,13 +8,13 @@ import SignUpForm from './SignUpForm'
 const SignUpBtn = () => {
   return (
 
-    <Dialog>
+    <Dialog >
       <DialogTrigger asChild>
       <Link href="#" className=' px-4 xl:px-0 border-white-700 border border-solid rounded-[5px] w-full h-11 flex justify-center items-center' >
         Sign Up
       </Link>
       </DialogTrigger>
-      <DialogContent className="w-full h-5/6">
+      <DialogContent className="w-full">
         <Label className='text-black text-3xl'>Sign Up</Label>
         <SignUpForm/>
       </DialogContent>

@@ -63,7 +63,8 @@ const Header = () => {
               <Link href='/' className='w-full h-11 flex justify-center items-center'>
                 About Us
               </Link>
- 
+
+              
               <SignUpBtn />
               <LoginBtn />
 

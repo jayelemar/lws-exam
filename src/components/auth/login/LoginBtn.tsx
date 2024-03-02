@@ -12,7 +12,7 @@ const LoginBtn = () => {
           Log In
         </Link>
       </DialogTrigger>
-      <DialogContent className="w-full h-5/6">
+      <DialogContent className="w-full">
       <Label className='text-black text-3xl'>Login</Label>
         <LoginForm/>
       </DialogContent>
