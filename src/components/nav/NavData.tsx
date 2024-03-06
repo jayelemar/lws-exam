@@ -13,11 +13,11 @@ export const links: LinkType[] = [
     name: 'Home',
   },  
   { 
-    path: '/',
+    path: '/discover',
     name: 'Discover',
   }, 
   { 
-    path: '/',
+    path: '/about',
     name: 'About Us',
   },  
 ];

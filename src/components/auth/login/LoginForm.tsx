@@ -13,6 +13,9 @@ import { Card } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
+import { useLoginModalStore } from '@/store/LoginModalStore';
+
 
 
 const FormSchema = z.object({
@@ -22,10 +25,12 @@ const FormSchema = z.object({
     .email("This is not a valid email."),
   password: z
   .string()
-  .min(1, { message: "required" }),
+  .min(6, { message: "required" }),
 });
 
 const LoginForm = () => {
+  const { setIsLoginModalOpen } = useLoginModalStore()
+
   const [showPassword, setShowPassword] = useState(false);
 
   const {mutateAsync:LoginMutation, isPending } = useLoginUser();
@@ -38,14 +43,16 @@ const LoginForm = () => {
     },
   })
 
+  const router = useRouter()
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
       await LoginMutation(data);
-      console.log("User Registrated Successfully")
+      console.log("User Login Successfully")
       console.log(data)
-
+      setIsLoginModalOpen(false)
+      router.push('/dashboard')
     } catch (error) {
-      console.error("Registration failed", error);
+      console.error("Login failed", error);
     }
   }
 
@@ -55,12 +62,13 @@ const LoginForm = () => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className=' flex flex-col' >
             <div className='mb-24'>
+            <FormLabel className='text-black text-3xl flex items-center justify-center mb-12'>Login</FormLabel>
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
                 <FormItem className='flex flex-col justify-center items-start relative mb-6'>
-                  <FormLabel className='mt-2 mr-10'>Email:</FormLabel>
+                  <FormLabel className='absolute -top-2 left-2 bg-white px-1 text-base'>Email:</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="" 
@@ -77,8 +85,8 @@ const LoginForm = () => {
               control={form.control}
               name="password"
               render={({ field }) => (
-                <FormItem className='flex flex-col justify-center items-start relative mb-6'>
-                  <FormLabel className='mr-4'>Password:</FormLabel>
+                <FormItem className='flex flex-col justify-center items-start relative mb-6 mt-8'>
+                  <FormLabel className='absolute -top-2 left-2 bg-white px-1 text-base'>Password:</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="" 
@@ -92,18 +100,18 @@ const LoginForm = () => {
             />
             {showPassword ? (
                 <EyeOff
-                  className='absolute top-8 right-2 text-gray-300 cursor-pointer'
+                  className='absolute top-4 right-2 text-gray-300 cursor-pointer'
                   onClick={() => setShowPassword(false)}
                 />
               ) : (
                 <Eye
-                  className='absolute top-8 right-2 text-gray-300 cursor-pointer'
+                  className='absolute top-4 right-2 text-gray-300 cursor-pointer'
                   onClick={() => setShowPassword(true)}
                 />
               )}
             </div>
             </div>
-            <Button type="submit" className='w-full'>
+            <Button type="submit" className='w-full text-lg'>
             { isPending ? <Loader2 className='animate-spin' />
               : 'Login' }
             </Button>

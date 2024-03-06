@@ -13,6 +13,7 @@ import { Card } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 
 const FormSchema = z.object({
@@ -25,7 +26,7 @@ const FormSchema = z.object({
     .email("This is not a valid email."),
   password: z
   .string()
-  .min(1, { message: "required" }),
+  .min(6, { message: "required" }),
 });
 
 const SignUpForm = () => {
@@ -42,11 +43,12 @@ const SignUpForm = () => {
     },
   })
 
+  const router = useRouter()
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
       await RegisterMutation(data);
       console.log("User Registrated Successfully")
-      console.log(data)
+      router.push('/dashboard')
 
     } catch (error) {
       console.error("Registration failed", error);
@@ -59,12 +61,13 @@ const SignUpForm = () => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className=' flex flex-col' >
             <div className='mb-24'>
+            <FormLabel className='text-black text-3xl flex items-center justify-center mb-12'>Sign Up</FormLabel>
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem className='flex flex-col justify-center items-start relative mb-6'>
-                  <FormLabel className='absolute -top-0 left-2 bg-white px-1'>Name:</FormLabel>
+                  <FormLabel className='absolute -top-2 left-2 bg-white px-1 text-base'>Name:</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="" 
@@ -80,9 +83,10 @@ const SignUpForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem className='flex flex-col justify-center items-start relative mb-6'>
-                  <FormLabel className='absolute -top-0 left-2 bg-white px-1'>Email:</FormLabel>
+                  <FormLabel className='absolute -top-1 left-2 bg-white px-1 text-base'>Email:</FormLabel>
                   <FormControl>
                     <Input 
+
                       placeholder="" 
                       {...field} 
                     />
@@ -97,8 +101,8 @@ const SignUpForm = () => {
               control={form.control}
               name="password"
               render={({ field }) => (
-                <FormItem className='flex flex-col justify-center items-start relative mb-6'>
-                  <FormLabel className='absolute -top-0 left-2 bg-white px-1'>Password:</FormLabel>
+                <FormItem className='flex flex-col justify-center items-start relative mb-2 mt-6'>
+                  <FormLabel className='absolute -top-1 left-2 bg-white px-1 text-base'>Password:</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="" 
@@ -123,7 +127,7 @@ const SignUpForm = () => {
               )}
             </div>
             </div>
-            <Button type="submit" className='w-full'>
+            <Button type="submit" className='w-full text-lg'>
               { isPending ? <Loader2 className='animate-spin' />
               : 'Register' }
             </Button>

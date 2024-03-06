@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/common/Header";
+import Header from "@/components/header/Header";
 import ReactQueryProvider from "@/components/provider/ReactQueryProvider";
 import { Toaster } from "@/components/ui/toaster"
 
@@ -23,7 +23,6 @@ export default function RootLayout({
       <body className={outfit.className}>
         <Toaster/>
         <ReactQueryProvider>
-          <Header />
           {children}
         </ReactQueryProvider>
       </body>
