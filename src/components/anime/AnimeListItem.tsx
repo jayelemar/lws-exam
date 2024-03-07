@@ -51,19 +51,19 @@ const AnimeListItem = ({ anime }: {anime: AnimeListItemProps}) => {
   };
 
   return (
-    <div className='flex flex-col w-full p-4 border-2 border-slate-300 shadow-lg' key={_id}>
+    <div className='flex flex-col w-full p-4 border-2 border-slate-300 shadow-lg relative' key={_id}>
       <div className="w-30 min-h-30 flex-1 p-1">
         <Image src={animeImg} alt='anime-image' loading='lazy'/>
       </div>
-      <div className="border-t-2 border-slate-300 ">
-        <h5 className='text-lg text-center'>{name}</h5>
-        <div className="flex flex-col xs:flex-row w-full relative">
+      <div className="border-t-2 border-slate-300 min-h-32 max-h-32 ">
+        <h5 className='text-lg text-center text-slate-700'>{name}</h5>
+        <div className="flex flex-col xs:flex-row w-full">
           <div className="flex flex-col w-full">
-            <Label className=''>Description: </Label>
-            <p className='text-sm'>{desc}</p>
+            <Label className='text-slate-700'>Description: </Label>
+            <p className='text-[10px] text-slate-700'>{desc}</p>
           </div>
           <div className="flex flex-row justify-between mt-1 xs:flex-col xs:gap-2 xs:absolute xs:right-0 xs:bottom-0">
-            <div className='text-center flex flex-row gap-2 justify-center items-center'>
+            <div className='absolute bottom-4 text-center flex flex-row gap-2 justify-center items-center'>
               <Pencil 
                 size={25} 
                 onClick={() => handleUpdate(_id)} 
