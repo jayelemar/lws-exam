@@ -24,54 +24,8 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import { useCreateAnime } from '@/services/animeServices'
 import { useRouter } from 'next/navigation'
-
-const categories = [
-  {
-    id: "action",
-    label: "Action",
-  },
-  {
-    id: "comedy",
-    label: "Comedy",
-  },
-  {
-    id: "drama",
-    label: "Drama",
-  },
-  {
-    id: "fantasy",
-    label: "Fantasy",
-  },
-  {
-    id: "romance",
-    label: "Romance",
-  },
-  {
-    id: "school life",
-    label: "School Life",
-  },
-  {
-    id: "supernatural",
-    label: "Supernatural",
-  },
-] as const
-
-const FormSchema = z.object({
-  name: z.string().min(1, {
-    message: "Name must be at least 1 character.",
-  }),
-  desc: z
-  .string()
-  .min(10, {
-    message: "Description must be at least 10 characters.",
-  })
-  .max(30, {
-    message: "Description must not be longer than 30 characters.",
-  }),
-  categories: z.array(z.string()).refine((value) => value.some((category) => category), {
-    message: "You have to select at least one item.",
-  }),
-});
+import { categories } from '@/data/CategoriesData'
+import { FormSchema } from '@/components/form/FormSchema'
 
 
 const AddAnime = () => {
@@ -112,6 +66,7 @@ const AddAnime = () => {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
               <div className="flex flex-col xl:flex-row gap-y-4 gap-x-8 mb-6 justify-center items-start">
                 <div className="basis-1/2 space-y-5">
+                  
                 <FormField
                   control={form.control}
                   name="name"
