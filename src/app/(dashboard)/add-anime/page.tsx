@@ -22,6 +22,8 @@ import { Textarea } from '@/components/ui/textarea'
 import { Card } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
+import { useCreateAnime } from '@/services/animeServices'
+import { useRouter } from 'next/navigation'
 
 const categories = [
   {
@@ -76,6 +78,9 @@ const FormSchema = z.object({
 
 
 const AddAnime = () => {
+  const {mutateAsync:CreateAnimeMutation} = useCreateAnime()
+  const router = useRouter()
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -85,15 +90,20 @@ const AddAnime = () => {
     },
   });
  
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    try {
+      await CreateAnimeMutation(data);
+      toast({
+        title: "Anime created successfully.",
+      })
+      router.push('/dashboard')
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Registration failed", 
+        description: `${error}`,
+      })
+    }
   }
 
   return (

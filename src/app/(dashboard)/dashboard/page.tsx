@@ -1,18 +1,29 @@
-import { FC } from "react"
+'use client';
+import { FC, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import DashboardLayout from "@/components/layout/DashboardLayout"
+import { useGetAnimes } from "@/services/animeServices"
+import AnimeList from "@/components/anime/AnimeList"
 
 const DashboardPage: FC = () => {
+
+  const { data: animesData, refetch } = useGetAnimes();
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
+
   return (
     <DashboardLayout>
-    <section className="bg-[#191919]/80">
+    <section >
       <div className="container flex justify-center items-center min-h-[100vh] flex-col">
           <div className="flex flex-col justify-center items-center gap-2 mx-auto">
-            <h2 className="text-xl">Dashboard Page</h2>
-            <p>This is the Dashboard Page</p>
-            <p className="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse consequuntur quae magni nostrum, earum alias illo adipisci atque numquam animi repellat expedita aliquam consequatur odio quidem ipsam provident voluptates ad! Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eos in maiores minus vero ea molestiae molestias, qui culpa blanditiis obcaecati repellendus autem tempore aliquid minima earum ratione voluptatem accusantium! Lorem ipsum dolor sit amet, consectetur adip</p>
-            <Link href='/'><Button className="mt-10 px-4 py-2 w-full bg-[#106580]">Back to Home</Button></Link>
+            <h2 className="text-3xl text-black mt-3">Anime List</h2>
+
+            <div className="w-full px-4">
+              <AnimeList animes={animesData ?? []} /> 
+            </div>
           </div>
       </div>
     </section>

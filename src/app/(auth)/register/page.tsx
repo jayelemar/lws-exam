@@ -35,8 +35,9 @@ password: z
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { toast } = useToast()
-  const {mutateAsync:RegisterMutation, isPending, isSuccess } = useRegisterUser();
+  const {mutateAsync:RegisterMutation, } = useRegisterUser();
   const setIsOpen = useMobileNavStore().setIsOpen
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -47,7 +48,7 @@ const Register = () => {
     },
   })
 
-  const router = useRouter()
+
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
       await RegisterMutation(data);

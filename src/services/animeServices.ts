@@ -1,4 +1,4 @@
-
+'use client';
 // import { useLeaveStore } from "@/store/leaveStore";
 // import { LeaveFormProps } from "@/types/leaveTypes";
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -6,12 +6,8 @@ import axios from "axios"
 
 export interface CreateAnimeFormProps {
   name: string,
-  leaveType: string,
-  startDate: Date,
-  endDate: Date,
-  reason: string,
-  contactAddress: string, 
-  contactNumber:  string,
+  desc: string,
+  categories: string[],
 }
 
 
@@ -27,5 +23,24 @@ export const useCreateAnime = () => {
   return useMutation({
     mutationKey:['createAnime'],
     mutationFn: createLeave
+  })
+}
+
+// Get Animes
+export const useGetAnimes = () => {
+  // const setAnimes = useLeaveStore().setLeaves
+
+  const getAnimes = async () => {
+    const response =await axios.get(`${BACKEND_URL}/api/animes`)
+    const animesData = response.data
+
+    // setLeaves(animesData);
+    return animesData
+  };
+
+  return useQuery({
+    queryKey:['getAnimes'],
+    queryFn: getAnimes,
+    
   })
 }
