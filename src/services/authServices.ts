@@ -12,7 +12,7 @@ export interface LoginUser {
   email: string,
   password: string,
 }
-const BACKEND_URL:string = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+const BACKEND_URL:string | undefined = process.env.NEXT_PUBLIC_BACKEND_URL 
 
 // Register User
 export const useRegisterUser = () => {
