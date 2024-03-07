@@ -92,11 +92,17 @@ export const useGetLoginStatus = () => {
 // Logout User
 export const useLogoutUser = () => {
   const logoutUser = async () => {
-    await axios.get(`${BACKEND_URL}/api/users/logout`)
-    return false
-  }
+    try {
+      await axios.get(`${BACKEND_URL}/api/users/logout`);
+      return false;
+    } catch (error) {
+      console.error("An unexpected error occurred during logout:", error);
+      throw error; 
+    }
+  };
+
   return useMutation({
     mutationKey: ['logoutUser'],
     mutationFn: logoutUser,
-  })
-}
+  });
+};

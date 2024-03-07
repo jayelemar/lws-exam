@@ -27,6 +27,7 @@ import { useRouter } from 'next/navigation'
 import { useAnimeStore } from '@/store/AnimeStore'
 import { categories } from '@/data/CategoriesData'
 import { FormSchema } from '@/components/form/FormSchema'
+import HeroBackgroundImage from '@/components/hero/HeroBackgroundImage'
 
 
 
@@ -63,8 +64,9 @@ const ProductDetails = () => {
   return (
     <DashboardLayout>
         <div className="container flex justify-center items-center min-h-[100vh] flex-col">
-        <Label className='text-3xl text-primary mb-2'>Update Anime</Label>
-        <Card className='p-6'>
+        <HeroBackgroundImage />
+        <Label className='text-3xl text-white mb-2 z-50'>Update Anime</Label>
+        <Card className='p-6 z-50'>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
               <div className="flex flex-col xl:flex-row gap-y-4 gap-x-8 mb-6 justify-center items-start">
@@ -154,7 +156,7 @@ const ProductDetails = () => {
                 />
                 </div>
               </div>
-              <Button type="submit" className='w-full xl:w-1/2 mx-auto flex xl:justify-center xl:items-center'>Submit</Button>
+              <Button type="submit" className='w-full xl:w-1/2 mx-auto flex xl:justify-center xl:items-center text-lg'>Submit</Button>
             </form>
           </Form>
         </Card>

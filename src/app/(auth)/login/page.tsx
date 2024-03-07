@@ -19,6 +19,7 @@ import { Button } from '@/components/ui/button';
 import { useToast } from "@/components/ui/use-toast"
 import { Label } from '@/components/ui/label';
 import { Eye, EyeOff } from 'lucide-react'
+import HeroBackgroundImage from '@/components/hero/HeroBackgroundImage';
 
 
 const FormSchema = z.object({
@@ -65,8 +66,9 @@ const Login = () => {
 
   return (
     <section className="w-full sm:bg-[#191919]/80 ">
-      <div className="container mx-auto h-screen flex justify-center items-center">
-        <Card className="animate-slide-up flex justify-center items-center mx-4 w-full md:w-[400px] mb-4 h-[500px] md:h-[500px] shadow-none md:shadow-lg border-none ">
+      <div className="container mx-auto flex justify-center items-center h-screen">
+        <HeroBackgroundImage />
+        <Card className="animate-slide-up flex justify-center items-center mx-4 w-full md:w-[400px] mb-4 h-[500px] md:h-[500px] shadow-none md:shadow-lg border-none z-50 ">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -135,7 +137,7 @@ const Login = () => {
                   />
                 )}
               </div>
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full text-lg">
                 Login
               </Button>
               <div className=" flex justify-between items-center">

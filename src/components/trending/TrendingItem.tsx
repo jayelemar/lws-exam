@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React, { FC } from 'react'
 import TrendingItemText from './TrendingItemText'
 
-interface Video {
+export interface Video {
   id: number,
   imageSrc: string,
   title: string,
@@ -18,6 +18,7 @@ const TrendingItem:FC<TrendingItemProps> = ({ video }) => {
   const {id, imageSrc, title, category, rating} = video
 
   return (
+    //Modal
     <div key={id} className="h-[291px] min-w-[500px] max-w-[500px] relative cursor-pointer ">
       <Image
         src={imageSrc}
@@ -34,6 +35,7 @@ const TrendingItem:FC<TrendingItemProps> = ({ video }) => {
         <TrendingItemText title={title} category={category} rating={rating}/>
       </div>
     </div>
+    // Modal end
   )
 }
 
