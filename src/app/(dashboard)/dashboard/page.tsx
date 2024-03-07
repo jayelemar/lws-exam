@@ -1,9 +1,11 @@
 import { FC } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import DashboardLayout from "@/components/layout/DashboardLayout"
 
 const DashboardPage: FC = () => {
   return (
+    <DashboardLayout>
     <section className="bg-[#191919]/80">
       <div className="container flex justify-center items-center min-h-[100vh] flex-col">
           <div className="flex flex-col justify-center items-center gap-2 mx-auto">
@@ -14,6 +16,7 @@ const DashboardPage: FC = () => {
           </div>
       </div>
     </section>
+    </DashboardLayout>
   )
 }
 export default DashboardPage

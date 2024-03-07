@@ -1,19 +1,28 @@
 'use client';
 import React from 'react'
-import { ChevronLeft, Eye, EyeOff, Loader2 } from 'lucide-react'
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useLoginUser } from '@/services/authServices'
+import { useMobileNavStore } from '@/store/MobileNavStore';
+
+// UI Imports
 import { Card } from '@/components/ui/card';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { 
+  Form, FormControl, FormField, FormItem, FormLabel, FormMessage 
+} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
-import { useLoginModalStore } from '@/store/LoginModalStore';
+import { useToast } from "@/components/ui/use-toast"
 import { Label } from '@/components/ui/label';
-import Link from 'next/link';
+import { Eye, EyeOff } from 'lucide-react'
+
+
+
+
 
 const FormSchema = z.object({
   email: z
@@ -27,11 +36,10 @@ const FormSchema = z.object({
 
 
 const Login = () => {
-  const { setIsLoginModalOpen } = useLoginModalStore()
-
   const [showPassword, setShowPassword] = useState(false);
-
   const {mutateAsync:LoginMutation, isPending } = useLoginUser();
+  const { toast } = useToast()
+  const setIsOpen = useMobileNavStore().setIsOpen
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -44,12 +52,18 @@ const Login = () => {
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
       await LoginMutation(data);
-      console.log("User Login Successfully")
-      console.log(data)
-      setIsLoginModalOpen(false)
+      toast({
+        title: "User Login Successfully",
+      })
       router.push('/dashboard')
+      setIsOpen(false)
+      
     } catch (error) {
-      console.error("Login failed", error);
+      toast({
+        variant: "destructive", 
+        title: "Login failed", 
+        description: `${error}`,
+      })
     }
   }
 
