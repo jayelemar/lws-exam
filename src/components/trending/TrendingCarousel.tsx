@@ -1,8 +1,8 @@
 import React from 'react'
-import TrendingItem from './TrendingItem';
 import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel';
 import AutoScroll from 'embla-carousel-auto-scroll'
 import { videos } from '../../data/TrendingData';
+import TrendingModal from '../modal/TrendingModal';
 
 const TrendingCarousel = () => {
   const carouselVideos = [...videos, ...videos, ...videos];
@@ -25,7 +25,7 @@ const TrendingCarousel = () => {
             {carouselVideos.map((video, index) => {
               return (
                 <CarouselItem key={index}>
-                  <TrendingItem  video={video}/>
+                  <TrendingModal video={video}/>
                 </CarouselItem>
               )
             })}

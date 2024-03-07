@@ -50,9 +50,9 @@ const AnimeListItem = ({ anime }: {anime: AnimeListItemProps}) => {
   };
 
   return (
-    <div className='flex flex-col w-full p-4 border-2 border-slate-300 shadow-lg relative' key={_id}>
-      <div className="w-30 min-h-30 flex-1 p-1">
-        <Image src={animeImg} alt='anime-image' loading='lazy'/>
+    <div className='flex flex-col w-full p-4 border-2 border-slate-300 shadow-lg rounded-xl relative bg-slate-200 z-50' key={_id}>
+      <div className="w-30 min-h-30 flex-1 p-1 ">
+        <Image src={animeImg} className='rounded' alt='anime-image' loading='lazy'/>
       </div>
       <div className="border-t-2 border-slate-300 min-h-32 max-h-32 ">
         <h5 className='text-lg text-center text-slate-700'>{name}</h5>

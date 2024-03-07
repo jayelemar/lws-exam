@@ -1,31 +1,19 @@
 'use client';
 import React from 'react'
-import Link from 'next/link'
+import SidebarList from './SidebarList';
+import Link from 'next/link';
+
 
 const Sidebar = () => {
-  const handleLogout = () => {
-    
-  }
+
   return (
-    <aside className=' min-w-[300px] h-full bg-[#191919] flex justify-center start'>
-      <nav className='h-full flex flex-col justify-center items-stretch py-20 max-h-screen'>
-        <ul className='flex  flex-col gap-y-12 flex-grow'>
-          <li className='cursor-pointer'>
-            <Link href='/dashboard'>Home</Link>
-          </li>        
-          <li className='cursor-pointer'>
-            <Link href='/add-anime'>Add Anime</Link>
-          </li>
-        </ul>
-        <div className='cursor-pointer '>
-          <Link 
-            href='/'
-            onClick={handleLogout}
-          >
-            Log out
-          </Link>
-        </div>
-      </nav>
+    <aside className='flex flex-col w-[300px] z-50 bg-white'>
+      <Link href='/' className='flex justify-center items-center'>
+        <h1 className='text-2xl font-bold text-slate-700 py-6'>
+          AnimeBinge
+        </h1>
+      </Link>
+      <SidebarList/>
     </aside>
   )
 }

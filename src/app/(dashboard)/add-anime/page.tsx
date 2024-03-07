@@ -26,6 +26,7 @@ import { useCreateAnime } from '@/services/animeServices'
 import { useRouter } from 'next/navigation'
 import { categories } from '@/data/CategoriesData'
 import { FormSchema } from '@/components/form/FormSchema'
+import HeroBackgroundImage from '@/components/hero/HeroBackgroundImage'
 
 const AddAnime = () => {
   const {mutateAsync:CreateAnimeMutation} = useCreateAnime()
@@ -59,12 +60,13 @@ const AddAnime = () => {
   return (
     <DashboardLayout>
         <div className="container flex justify-center items-center min-h-[100vh] flex-col">
-        <Label className='text-3xl text-primary mb-2'>Add Anime</Label>
-        <Card className='p-6'>
+          <HeroBackgroundImage/>
+        <Label className='text-3xl text-white mb-2 z-50'>Add Anime</Label>
+        <Card className='p-6 z-50'>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
               <div className="flex flex-col xl:flex-row gap-y-4 gap-x-8 mb-6 justify-center items-start">
-                <div className="basis-1/2 space-y-5">
+                <div className=" basis-full xl:basis-1/2 w-full space-y-5">
                   
                 <FormField
                   control={form.control}
@@ -75,7 +77,7 @@ const AddAnime = () => {
                       <FormControl>
                         <Input {...field} className='w-full'/>
                       </FormControl>
-                      <FormMessage className='absolute -bottom-4 left-0 text-[10px] whitespace-nowrap' />
+                      <FormMessage className='absolute -bottom-5 left-0 text-[10px] whitespace-nowrap' />
                     </FormItem>
                   )}
                 />
@@ -145,13 +147,13 @@ const AddAnime = () => {
                         />
                       ))}
                       </div>
-                      <FormMessage className='absolute -bottom-7 left-0 text-[10px]'/>
+                      <FormMessage className='absolute -bottom-5 xl:-bottom-7 left-0 text-[10px]'/>
                     </FormItem>
                   )}
                 />
                 </div>
               </div>
-              <Button type="submit" className='w-full xl:w-1/2 mx-auto flex xl:justify-center xl:items-center'>Submit</Button>
+              <Button type="submit" className='w-full xl:w-1/2 mx-auto flex xl:justify-center xl:items-center text-lg'>Submit</Button>
             </form>
           </Form>
         </Card>

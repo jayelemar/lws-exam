@@ -2,7 +2,7 @@ export const videos = [
   {
     id: 1,
     imageSrc: '/images/img_rectangle_9.png',
-    title: 'Jujutsu Kaisen',
+    title: 'Attack on Titans',
     category: 'Adventure fiction, Martial Arts',
     rating: '5.0'
   },
@@ -16,7 +16,7 @@ export const videos = [
   {
     id:3,
     imageSrc: '/images/img_rectangle_11.png',
-    title: 'Jujutsu Kaisen',
+    title: 'One Piece',
     category: 'Adventure fiction, Martial Arts',
     rating: '5.0'
   },

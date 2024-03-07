@@ -1,7 +1,14 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
+import { Button } from '../ui/button'
 
 const HeroText = () => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked((prevValue) => !prevValue);
+  };
+
   return (
     <div className="container mx-auto flex flex-col items-start justify-center  h-full left-0 bottom-0 right-0 top-0 m-auto absolute">
 
@@ -28,12 +35,17 @@ const HeroText = () => {
         slaughtered and his younger sister Nezuko turned into a demon.
       </p>
       <div className="flex flex-row justify-start mt-2.5 ml-1.5 gap-[17px]">
-        <div className="min-w-[142px] flex flex-row justify-start items-center gap-1 bg-[#106580]  rounded-[5px] w-full h-11 ">
+        <Button className="cursor-pointer min-w-[142px] flex flex-row justify-center items-center gap-1 bg-[#106580] rounded-[5px] w-full h-11 text-base">
           <Image src="/images/img_frame_white_a700.svg" alt="Frame" width={29} height={29} />
           Watch Now!
-        </div>
-        <div className='flex justify-center items-center rounded-[5px] w-full h-11 border border-solid  min-w-[48px]'>
-          <Image src="/images/img_frame_white_a700_44x48.svg" alt="" width={27} height={27}/>
+        </Button>
+        <div
+          className={`cursor-pointer flex justify-center items-center rounded-[5px] w-full h-11 border border-solid min-w-[48px] ${
+            isClicked ? 'bg-red-700' : ''
+          }`}
+          onClick={handleClick}
+        >
+          <Image src="/images/img_frame_white_a700_44x48.svg" alt="" width={27} height={27} />
         </div>
       </div>
       <div className="flex flex-row justify-between items-center w-full mt-[312px] ml-[5px]">
