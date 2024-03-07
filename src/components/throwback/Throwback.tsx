@@ -16,7 +16,7 @@ const Throwback = () => {
             <Image key={id}
             src={imageSrc}
             alt={text}
-            className="w-full object-cover rounded-[30px]"
+            className="w-full object-cover rounded-[30px] hover:scale-105 cursor-pointer"
             width={1227}
             height={1281}
           />

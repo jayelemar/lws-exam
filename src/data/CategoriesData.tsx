@@ -22,7 +22,7 @@ export const categories = [
   {
     id: "school life",
     label: "School Life",
-  },
+  }, 
   {
     id: "supernatural",
     label: "Supernatural",
