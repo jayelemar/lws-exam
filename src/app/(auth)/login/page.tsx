@@ -21,9 +21,6 @@ import { Label } from '@/components/ui/label';
 import { Eye, EyeOff } from 'lucide-react'
 
 
-
-
-
 const FormSchema = z.object({
   email: z
     .string()
@@ -34,10 +31,9 @@ const FormSchema = z.object({
   .min(6, { message: "required" }),
 });
 
-
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const {mutateAsync:LoginMutation, isPending } = useLoginUser();
+  const { mutateAsync:LoginMutation } = useLoginUser();
   const { toast } = useToast()
   const setIsOpen = useMobileNavStore().setIsOpen
 

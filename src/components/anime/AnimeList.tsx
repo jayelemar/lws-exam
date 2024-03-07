@@ -4,8 +4,6 @@ import AnimeListItem from './AnimeListItem';
 import Link from 'next/link';
 import { buttonVariants } from "@/components/ui/button"
 
-
-
 export interface Anime {
   _id: string; 
   name: string;
@@ -31,8 +29,6 @@ const AnimeList: FC<AnimeListProps> = ({ animes }) => {
 
       </section>
     )
-    
-
   } else {
     return (
       <div className='grid grid-cols-4 gap-4'>
@@ -42,8 +38,6 @@ const AnimeList: FC<AnimeListProps> = ({ animes }) => {
       </div>
     );
   }
-
-
 };
 
 export default AnimeList;

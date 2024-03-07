@@ -19,12 +19,9 @@ export const useRegisterUser = () => {
   const registerUser = async (data: RegisterUser) => {
     try {
       const response = await axios.post(`${BACKEND_URL}/api/users/register`, data)
-
       if (response.status === 201) {
-        // Handle successful registration
         return response.data
       } else {
-        // Handle unexpected status code
         console.error("Unexpected status code:", response.status);
         console.error("An unexpected error occurred");
       }
@@ -74,7 +71,6 @@ export const useLoginUser = () => {
       }
     }
   }
-
   return useMutation({
     mutationKey: ['loginUser'],
     mutationFn: loginUser,
@@ -95,7 +91,6 @@ export const useGetLoginStatus = () => {
 
 // Logout User
 export const useLogoutUser = () => {
-
   const logoutUser = async () => {
     await axios.get(`${BACKEND_URL}/api/users/logout`)
     return false
