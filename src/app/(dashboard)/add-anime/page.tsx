@@ -24,37 +24,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import { useCreateAnime } from '@/services/animeServices'
 import { useRouter } from 'next/navigation'
-
-const categories = [
-  {
-    id: "action",
-    label: "Action",
-  },
-  {
-    id: "comedy",
-    label: "Comedy",
-  },
-  {
-    id: "drama",
-    label: "Drama",
-  },
-  {
-    id: "fantasy",
-    label: "Fantasy",
-  },
-  {
-    id: "romance",
-    label: "Romance",
-  },
-  {
-    id: "school life",
-    label: "School Life",
-  },
-  {
-    id: "supernatural",
-    label: "Supernatural",
-  },
-] as const
+import { categories } from '@/data/CategoriesData'
 
 const FormSchema = z.object({
   name: z.string().min(1, {
@@ -112,6 +82,7 @@ const AddAnime = () => {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
               <div className="flex flex-col xl:flex-row gap-y-4 gap-x-8 mb-6 justify-center items-start">
                 <div className="basis-1/2 space-y-5">
+                  
                 <FormField
                   control={form.control}
                   name="name"
