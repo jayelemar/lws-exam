@@ -27,9 +27,10 @@ import { useRouter } from 'next/navigation'
 import { categories } from '@/data/CategoriesData'
 import { FormSchema } from '@/components/form/FormSchema'
 import HeroBackgroundImage from '@/components/hero/HeroBackgroundImage'
+import { Loader2 } from 'lucide-react'
 
 const AddAnime = () => {
-  const {mutateAsync:CreateAnimeMutation} = useCreateAnime()
+  const {mutateAsync:CreateAnimeMutation, isPending} = useCreateAnime()
   const router = useRouter()
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -153,7 +154,18 @@ const AddAnime = () => {
                 />
                 </div>
               </div>
-              <Button type="submit" className='w-full xl:w-1/2 mx-auto flex xl:justify-center xl:items-center text-lg'>Submit</Button>
+              <Button 
+                type="submit" 
+                className='w-full xl:w-1/2 mx-auto flex xl:justify-center xl:items-center text-lg'
+              >
+                {isPending ? (
+                  <span className='flex justify-center items-center'>
+                    Loading <Loader2 className='animate-spin'/>
+                  </span>
+                ) : (
+                  'Submit'
+                )}
+              </Button>
             </form>
           </Form>
         </Card>

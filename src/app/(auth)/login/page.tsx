@@ -18,7 +18,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useToast } from "@/components/ui/use-toast"
 import { Label } from '@/components/ui/label';
-import { Eye, EyeOff } from 'lucide-react'
+import { Eye, EyeOff, Loader2 } from 'lucide-react'
 import HeroBackgroundImage from '@/components/hero/HeroBackgroundImage';
 
 
@@ -34,7 +34,7 @@ const FormSchema = z.object({
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { mutateAsync:LoginMutation } = useLoginUser();
+  const { mutateAsync:LoginMutation, isPending } = useLoginUser();
   const { toast } = useToast()
   const setIsOpen = useMobileNavStore().setIsOpen
 
@@ -138,7 +138,13 @@ const Login = () => {
                 )}
               </div>
               <Button type="submit" className="w-full text-lg">
-                Login
+              {isPending ? (
+                <span className='flex justify-center items-center'>
+                  Loading <Loader2 className='animate-spin'/>
+                </span>
+              ) : (
+                'Login'
+              )}
               </Button>
               <div className=" flex justify-between items-center">
                 <Link

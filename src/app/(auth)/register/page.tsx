@@ -13,7 +13,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMobileNavStore } from "@/store/MobileNavStore";
 import HeroBackgroundImage from "@/components/hero/HeroBackgroundImage";
@@ -35,7 +35,7 @@ password: z
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { toast } = useToast()
-  const {mutateAsync:RegisterMutation, } = useRegisterUser();
+  const {mutateAsync:RegisterMutation, isPending } = useRegisterUser();
   const setIsOpen = useMobileNavStore().setIsOpen
   const router = useRouter()
 
@@ -136,7 +136,15 @@ const Register = () => {
                   />
                 )}
               </div>
-              <Button type="submit" className='w-full text-lg'>Register</Button>
+              <Button type="submit" className='w-full text-lg'>
+              {isPending ? (
+                <span className='flex justify-center items-center'>
+                  Loading <Loader2 className='animate-spin'/>
+                </span>
+              ) : (
+                'Register'
+              )}
+              </Button>
               <div className=" flex justify-between items-center">
                 <Link
                     href="/login"

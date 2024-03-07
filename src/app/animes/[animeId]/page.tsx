@@ -28,12 +28,13 @@ import { useAnimeStore } from '@/store/AnimeStore'
 import { categories } from '@/data/CategoriesData'
 import { FormSchema } from '@/components/form/FormSchema'
 import HeroBackgroundImage from '@/components/hero/HeroBackgroundImage'
+import { Loader2 } from 'lucide-react'
 
 
 
 const ProductDetails = () => {
   const { name, _id, desc, categories: cat } = useAnimeStore()
-  const { mutateAsync: UpdateAnimeMutation } = useUpdateAnime();
+  const { mutateAsync: UpdateAnimeMutation, isPending } = useUpdateAnime();
   const router = useRouter()
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -156,7 +157,15 @@ const ProductDetails = () => {
                 />
                 </div>
               </div>
-              <Button type="submit" className='w-full xl:w-1/2 mx-auto flex xl:justify-center xl:items-center text-lg'>Submit</Button>
+              <Button type="submit" className='w-full xl:w-1/2 mx-auto flex xl:justify-center xl:items-center text-lg'>
+                {isPending ? (
+                  <span className='flex justify-center items-center'>
+                    Loading <Loader2 className='animate-spin'/>
+                  </span>
+                ) : (
+                  'Submit'
+                )}
+              </Button>
             </form>
           </Form>
         </Card>
