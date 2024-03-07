@@ -22,8 +22,9 @@ import { Textarea } from '@/components/ui/textarea'
 import { Card } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
-import { useCreateAnime } from '@/services/animeServices'
+import { useCreateAnime, useUpdateAnime } from '@/services/animeServices'
 import { useRouter } from 'next/navigation'
+import { useAnimeStore } from '@/store/AnimeStore'
 
 const categories = [
   {
@@ -73,31 +74,31 @@ const FormSchema = z.object({
   }),
 });
 
-
-const AddAnime = () => {
-  const {mutateAsync:CreateAnimeMutation} = useCreateAnime()
+const ProductDetails = () => {
+  const { name, _id, desc, categories: cat } = useAnimeStore()
+  const { mutateAsync: UpdateAnimeMutation } = useUpdateAnime();
   const router = useRouter()
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      name: "",
-      desc: "",
-      categories: [],
+      name: name,
+      desc: desc,
+      categories: cat,
     },
   });
  
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
-      await CreateAnimeMutation(data);
+      await UpdateAnimeMutation({ id: _id, data });
       toast({
-        title: "Anime created successfully.",
+        title: "Anime updated successfully.",
       })
       router.push('/dashboard')
     } catch (error) {
       toast({
         variant: "destructive",
-        title: "Registration failed", 
+        title: "Anime update failed", 
         description: `${error}`,
       })
     }
@@ -106,7 +107,7 @@ const AddAnime = () => {
   return (
     <DashboardLayout>
         <div className="container flex justify-center items-center min-h-[100vh] flex-col">
-        <Label className='text-3xl text-primary mb-2'>Add Anime</Label>
+        <Label className='text-3xl text-primary mb-2'>Update Anime</Label>
         <Card className='p-6'>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
@@ -207,4 +208,4 @@ const AddAnime = () => {
   )
 }
 
-export default AddAnime
+export default ProductDetails

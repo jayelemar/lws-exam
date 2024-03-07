@@ -1,7 +1,7 @@
 'use client';
 // import { useLeaveStore } from "@/store/leaveStore";
 // import { LeaveFormProps } from "@/types/leaveTypes";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { QueryCache, useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios"
 
 export interface CreateAnimeFormProps {
@@ -28,13 +28,13 @@ export const useCreateAnime = () => {
 
 // Get Animes
 export const useGetAnimes = () => {
-  // const setAnimes = useLeaveStore().setLeaves
+  // const setAnimes = useanimeStore().setLeaves
 
   const getAnimes = async () => {
     const response =await axios.get(`${BACKEND_URL}/api/animes`)
     const animesData = response.data
 
-    // setLeaves(animesData);
+    // setanimes(animesData);
     return animesData
   };
 
@@ -44,3 +44,52 @@ export const useGetAnimes = () => {
     
   })
 }
+
+// Get Single Anime
+export const useGetSingleAnime = (id: string) => {
+  const getSingleAnime = async () => {
+    const response = await axios.get(`${BACKEND_URL}/api/animes/${id}`);
+    return response.data;
+  };
+
+  return useQuery({
+    queryKey:['getSingleAnime', id],
+    queryFn: getSingleAnime,
+  });
+};
+
+
+// Delete Anime
+export const useDeleteAnime = () => {
+  const deleteAnime = async (id: string) => {
+    const response = await axios.delete(`${BACKEND_URL}/api/animes/${id}`);
+    return response.data;
+  };
+
+  return useMutation({
+    mutationKey: ['deleteAnime'],
+    mutationFn: deleteAnime,
+  });
+};
+
+// Update Anime
+// Update Anime
+export const useUpdateAnime = () => {
+  const updateAnime = async ({ id, data }: { id: string; data: CreateAnimeFormProps }) => {
+    try {
+      const response = await axios.put(`${BACKEND_URL}/api/animes/${id}`, data);
+      return response.data;
+    } catch (error: any) {
+      console.error("Update Anime Error:", error.response?.data || error.message);
+      throw error; // Rethrow the error to be caught by the calling code
+    }
+  };
+
+  return useMutation({
+    mutationKey: ['updateAnime'],
+    mutationFn: updateAnime,
+  });
+}
+
+
+
