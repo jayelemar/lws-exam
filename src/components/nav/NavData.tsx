@@ -1,6 +1,4 @@
 import * as React from "react";
-import SignUpBtn from "../auth/signUp/SignUpBtn";
-import LoginBtn from "../auth/login/LoginBtn";
 
 export type LinkType = { 
   path: string;

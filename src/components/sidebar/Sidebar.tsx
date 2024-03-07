@@ -25,7 +25,6 @@ const Sidebar = () => {
             Log out
           </Link>
         </div>
-
       </nav>
     </aside>
   )

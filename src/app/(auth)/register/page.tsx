@@ -18,7 +18,6 @@ import { Button } from "@/components/ui/button";
 import { useMobileNavStore } from "@/store/MobileNavStore";
 
 
-
 const FormSchema = z.object({
 name: z
 .string()
@@ -47,7 +46,6 @@ const Register = () => {
       password: "",
     },
   })
-
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {

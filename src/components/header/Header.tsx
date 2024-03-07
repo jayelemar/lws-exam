@@ -3,9 +3,6 @@
 import { AlignRight } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-
-import { usePathname } from "next/navigation";
-
 import { useEffect, useState } from "react";
 import { useMobileNavStore } from "@/store/MobileNavStore";
 import MobileNav from '../nav/MobileNav';
@@ -14,17 +11,14 @@ import { useLogoutUser } from '@/services/authServices';
 import { useToast } from '../ui/use-toast';
 import { useAuthStore } from '@/store/AuthStore';
 
-
-
-
 const Header = () => {
   const {mutate: LogoutMutation } = useLogoutUser()
   const { toast } = useToast()
-  const {setIsLoggedIn, isLoggedIn } = useAuthStore()
+  const {setIsLoggedIn } = useAuthStore()
 
   // header style event transition
   const [header, setHeader] = useState(false)
-  const pathname = usePathname()
+
   useEffect(() => {
     const scrollYPos = window.addEventListener('scroll', () => {
       window.scrollY > 50 ? setHeader(true) : setHeader(false)
@@ -58,7 +52,6 @@ const Header = () => {
   };
 
 
-
   return (
     <header className={
       `${
@@ -87,43 +80,12 @@ const Header = () => {
               <Link href='/about' className='w-full h-11 flex justify-center items-center'>
                 About Us
               </Link>
-
-
               <Link href="/register" className=' px-4 xl:px-0 border-white-700 xl:border xl:border-solid xl:rounded-[5px] w-full h-11 flex justify-center items-center' >
                             Sign Up
-                  </Link>
-                  <Link href="/login" className='bg-[#106580] border border-solid border-[#106580] rounded-[5px] w-full h-11 flex justify-center items-center px-4 xl:px-0 text-white/80 xl:text-foreground' >
-                    Log In
-                  </Link>
-
-
-
-              {/* <Link 
-                href="/" 
-                onClick={handleLogout}
-                className='bg-[#106580] border border-solid border-[#106580] rounded-[5px] w-full h-11 flex justify-center items-center px-4 xl:px-0 text-white/80 xl:text-foreground' >
-                  Logout
-                </Link> */}
-
-
-
- 
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
+              </Link>
+              <Link href="/login" className='bg-[#106580] border border-solid border-[#106580] rounded-[5px] w-full h-11 flex justify-center items-center px-4 xl:px-0 text-white/80 xl:text-foreground' >
+                Log In
+              </Link>
             </div>
             {/* Mobile Nav */}
             <AlignRight
@@ -137,12 +99,10 @@ const Header = () => {
                 activeLinkStyles=''
               />
             </MobileNav>
-
           </div>
         </div>
       </div>
     </header>
   )
 }
-
 export default Header

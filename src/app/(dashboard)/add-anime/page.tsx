@@ -27,7 +27,6 @@ import { useRouter } from 'next/navigation'
 import { categories } from '@/data/CategoriesData'
 import { FormSchema } from '@/components/form/FormSchema'
 
-
 const AddAnime = () => {
   const {mutateAsync:CreateAnimeMutation} = useCreateAnime()
   const router = useRouter()
@@ -40,7 +39,7 @@ const AddAnime = () => {
       categories: [],
     },
   });
- 
+
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
       await CreateAnimeMutation(data);
@@ -156,7 +155,6 @@ const AddAnime = () => {
             </form>
           </Form>
         </Card>
-
       </div>
     </DashboardLayout>
   )

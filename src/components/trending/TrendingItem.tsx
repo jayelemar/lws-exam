@@ -32,7 +32,6 @@ const TrendingItem:FC<TrendingItemProps> = ({ video }) => {
       <div className="flex flex-row justify-center w-full h-full left-0 bottom-0 right-0 top-0 p-[18px] m-auto bg-gradient absolute rounded-[21px]">
         {/* Item Text */}
         <TrendingItemText title={title} category={category} rating={rating}/>
-
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 'use client';
-import React, { FC } from 'react'
+import React from 'react'
 import { Pencil, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 import animeImg from '../../../public/anime-image.png';
@@ -17,12 +17,12 @@ interface AnimeListItemProps {
 }
 
 const AnimeListItem = ({ anime }: {anime: AnimeListItemProps}) => {
-  const { mutateAsync: DeleteAnimeMutation  } = useDeleteAnime();
-  const { refetch } = useGetAnimes()
-  const { toast } = useToast()
   const router = useRouter();
-  const {_id, name, desc, categories} = anime
+  const { toast } = useToast()
+  const { refetch } = useGetAnimes()
+  const { mutateAsync: DeleteAnimeMutation  } = useDeleteAnime();
   const {setID, setName, setDesc, setCategories} = useAnimeStore()
+  const {_id, name, desc, categories} = anime
 
   const handleDelete = async (animeId: string) => {
     try {
@@ -46,7 +46,6 @@ const AnimeListItem = ({ anime }: {anime: AnimeListItemProps}) => {
     setID(_id)
     setDesc(desc)
     setCategories(categories)
-
     router.push(`/animes/${_id}}`)
   };
 

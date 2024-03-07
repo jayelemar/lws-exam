@@ -3,9 +3,6 @@ import { FC, memo } from "react"
 import { useMobileNavStore } from "@/store/MobileNavStore";
 import Link from "next/link";
 import { links } from "./NavData";
-import LoginBtn from "../auth/login/LoginBtn";
-import SignUpBtn from "../auth/signUp/SignUpBtn";
-
 
 type NavProps = {
   containerStyles: string,
@@ -14,7 +11,6 @@ type NavProps = {
 }
 
 const Nav:FC<NavProps> = ({ containerStyles, linkStyles }) => {
-
   const {isOpen, setIsOpen } = useMobileNavStore()
 
   return (
@@ -30,7 +26,6 @@ const Nav:FC<NavProps> = ({ containerStyles, linkStyles }) => {
         </Link>
       ))}
       <div className="text-[#191919] text-2xl flex flex-col gap-4 mt-24 w-full">
-
         <Link href="/register" className=' px-4 xl:px-0 border-white-700 xl:border xl:border-solid xl:rounded-[5px] w-full h-11 flex justify-center items-center' >
           Sign Up
         </Link>
@@ -38,8 +33,6 @@ const Nav:FC<NavProps> = ({ containerStyles, linkStyles }) => {
           Log In
         </Link>
       </div>
-
-
     </nav>
   );
 }

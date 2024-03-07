@@ -1,7 +1,5 @@
 'use client';
-// import { useLeaveStore } from "@/store/leaveStore";
-// import { LeaveFormProps } from "@/types/leaveTypes";
-import { QueryCache, useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios"
 
 export interface CreateAnimeFormProps {
@@ -9,7 +7,6 @@ export interface CreateAnimeFormProps {
   desc: string,
   categories: string[],
 }
-
 
 const BACKEND_URL: string = process.env.NEXT_BACKEND_URL || 'http://localhost:8000'
 
@@ -28,13 +25,9 @@ export const useCreateAnime = () => {
 
 // Get Animes
 export const useGetAnimes = () => {
-  // const setAnimes = useanimeStore().setLeaves
-
   const getAnimes = async () => {
     const response =await axios.get(`${BACKEND_URL}/api/animes`)
     const animesData = response.data
-
-    // setanimes(animesData);
     return animesData
   };
 
@@ -73,7 +66,6 @@ export const useDeleteAnime = () => {
 };
 
 // Update Anime
-// Update Anime
 export const useUpdateAnime = () => {
   const updateAnime = async ({ id, data }: { id: string; data: CreateAnimeFormProps }) => {
     try {
@@ -81,10 +73,9 @@ export const useUpdateAnime = () => {
       return response.data;
     } catch (error: any) {
       console.error("Update Anime Error:", error.response?.data || error.message);
-      throw error; // Rethrow the error to be caught by the calling code
+      throw error; 
     }
   };
-
   return useMutation({
     mutationKey: ['updateAnime'],
     mutationFn: updateAnime,
