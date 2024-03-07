@@ -2,7 +2,7 @@ import React from 'react'
 import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel';
 import AutoScroll from 'embla-carousel-auto-scroll'
 import { videos } from '../../data/TrendingData';
-import TrendingModal from '../modal/TrendingModal';
+import TrendingModal from './TrendingModal';
 
 const TrendingCarousel = () => {
   const carouselVideos = [...videos, ...videos, ...videos];

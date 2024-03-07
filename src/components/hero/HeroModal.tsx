@@ -7,27 +7,46 @@ import {
   DialogFooter,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import TrendingItem, { Video } from "../trending/TrendingItem";
-import { FC } from "react";
 import Image from "next/image";
+import imageSrc from '../../../public/images/img_image_1.png'
 
-interface TrendingModalProps {
-  video: Video
+interface Video {
+  title: string;
+  category: string;
+  rating: string;
 }
 
-const TrendingModal:FC<TrendingModalProps> = ({ video }) => {
-  const { id, title, category, rating, imageSrc } = video
+interface HeroModalProps {
+  video: Video;
+}
+
+
+
+const video = {
+  title: 'Kimetsu no Yaiba',
+  category: 'Adventure fiction, Dark fantasy, Martial Arts',
+  rating: '5.0',
+
+}
+
+const HeroModal = () => {
+  const { title, category, rating } = video;
   return (
-    <Dialog key={id}>
+    <Dialog>
       <DialogTrigger asChild>
-        <div><TrendingItem video={video}/></div>
+        <div>
+          <Button className="cursor-pointer min-w-[142px] flex flex-row justify-center items-center gap-1 bg-[#106580] rounded-[5px] w-full h-11 text-base">
+            <Image src="/images/img_frame_white_a700.svg" alt="Frame" width={29} height={29} />
+            Watch Now!
+          </Button>
+        </div>
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-md">
         <div className="flex flex-col justify-between items-center text-slate-700">
           {/* Image */}
           <div className="">
-            <Image width={1548} height={873} src={imageSrc} alt={title} />
+            <Image width={1920} height={1080} src={imageSrc} alt={title} className="rounded-2xl" />
           </div>
           {/* Text */}
           <div className="flex flex-col justify-center w-full">
@@ -52,4 +71,4 @@ const TrendingModal:FC<TrendingModalProps> = ({ video }) => {
   )
 }
 
-export default TrendingModal
+export default HeroModal

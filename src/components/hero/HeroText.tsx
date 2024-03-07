@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { Button } from '../ui/button'
+import HeroModal from './HeroModal';
 
 const HeroText = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -35,10 +36,7 @@ const HeroText = () => {
         slaughtered and his younger sister Nezuko turned into a demon.
       </p>
       <div className="flex flex-row justify-start mt-2.5 ml-1.5 gap-[17px]">
-        <Button className="cursor-pointer min-w-[142px] flex flex-row justify-center items-center gap-1 bg-[#106580] rounded-[5px] w-full h-11 text-base">
-          <Image src="/images/img_frame_white_a700.svg" alt="Frame" width={29} height={29} />
-          Watch Now!
-        </Button>
+        <HeroModal />
         <div
           className={`cursor-pointer flex justify-center items-center rounded-[5px] w-full h-11 border border-solid min-w-[48px] ${
             isClicked ? 'bg-red-700' : ''
