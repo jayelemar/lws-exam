@@ -17,7 +17,7 @@ const DashboardPage: FC = () => {
     <section >
       <div className="container flex justify-center items-center min-h-[100vh] flex-col">
           <div className="flex flex-col justify-center items-center gap-2 mx-auto">
-          <h2 className="text-3xl text-black absolute top-16">Anime List</h2>
+          <h2 className="text-3xl text-black flex mt-16 sm:mt-0 md:absolute top-16">Anime List</h2>
             <div className="w-full px-4">
               <AnimeList animes={animesData ?? []} /> 
             </div>

@@ -31,7 +31,7 @@ const AnimeList: FC<AnimeListProps> = ({ animes }) => {
     )
   } else {
     return (
-      <div className='grid grid-cols-4 gap-4'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4'>
         {animes.animes.map((anime) => (
           <AnimeListItem key={anime._id} anime={anime}/>
         ))}
