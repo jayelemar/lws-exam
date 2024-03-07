@@ -139,7 +139,7 @@ const Login = () => {
               </div>
               <Button type="submit" className="w-full text-lg">
               {isPending ? (
-                <span className='flex justify-center items-center'>
+                <span className='flex justify-center items-center gap-2'>
                   Loading <Loader2 className='animate-spin'/>
                 </span>
               ) : (

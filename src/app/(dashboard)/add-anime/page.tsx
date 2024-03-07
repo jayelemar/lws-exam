@@ -159,7 +159,7 @@ const AddAnime = () => {
                 className='w-full xl:w-1/2 mx-auto flex xl:justify-center xl:items-center text-lg'
               >
                 {isPending ? (
-                  <span className='flex justify-center items-center'>
+                  <span className='flex justify-center items-center gap-2'>
                     Loading <Loader2 className='animate-spin'/>
                   </span>
                 ) : (
