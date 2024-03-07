@@ -25,23 +25,7 @@ import { Label } from '@/components/ui/label'
 import { useCreateAnime } from '@/services/animeServices'
 import { useRouter } from 'next/navigation'
 import { categories } from '@/data/CategoriesData'
-
-const FormSchema = z.object({
-  name: z.string().min(1, {
-    message: "Name must be at least 1 character.",
-  }),
-  desc: z
-  .string()
-  .min(10, {
-    message: "Description must be at least 10 characters.",
-  })
-  .max(30, {
-    message: "Description must not be longer than 30 characters.",
-  }),
-  categories: z.array(z.string()).refine((value) => value.some((category) => category), {
-    message: "You have to select at least one item.",
-  }),
-});
+import { FormSchema } from '@/components/form/FormSchema'
 
 
 const AddAnime = () => {
