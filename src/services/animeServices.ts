@@ -8,7 +8,7 @@ export interface CreateAnimeFormProps {
   categories: string[],
 }
 
-const BACKEND_URL: string = process.env.NEXT_BACKEND_URL || 'http://localhost:8000'
+const BACKEND_URL: string | undefined = process.env.NEXT_BACKEND_URL
 
 // Create a new Leave Request
 export const useCreateAnime = () => {
