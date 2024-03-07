@@ -10,11 +10,17 @@ import { useEffect, useState } from "react";
 import { useMobileNavStore } from "@/store/MobileNavStore";
 import MobileNav from '../nav/MobileNav';
 import Nav from '../nav/Nav';
+import { useLogoutUser } from '@/services/authServices';
+import { useToast } from '../ui/use-toast';
+import { useAuthStore } from '@/store/AuthStore';
 
 
 
 
 const Header = () => {
+  const {mutate: LogoutMutation } = useLogoutUser()
+  const { toast } = useToast()
+  const {setIsLoggedIn, isLoggedIn } = useAuthStore()
 
   // header style event transition
   const [header, setHeader] = useState(false)
@@ -33,6 +39,22 @@ const Header = () => {
   const handleClick = (e:React.MouseEvent<SVGSVGElement, MouseEvent>) => {
     e.preventDefault();
     setIsOpen(true)
+  };
+  
+  const handleLogout = async () => {
+    try {
+      await LogoutMutation();
+      await setIsLoggedIn(false);
+      toast({
+        title: "User Logout Successfully",
+      })
+    } catch (error) {
+      toast({
+        variant: "destructive", 
+        title: "Login failed", 
+        description: `${error}`,
+      })
+    }
   };
 
 
@@ -66,13 +88,40 @@ const Header = () => {
                 About Us
               </Link>
 
-              
+
               <Link href="/register" className=' px-4 xl:px-0 border-white-700 xl:border xl:border-solid xl:rounded-[5px] w-full h-11 flex justify-center items-center' >
-                Sign Up
-              </Link>
-              <Link href="/login" className='bg-[#106580] border border-solid border-[#106580] rounded-[5px] w-full h-11 flex justify-center items-center px-4 xl:px-0 text-white/80 xl:text-foreground' >
-                Log In
-              </Link>
+                            Sign Up
+                  </Link>
+                  <Link href="/login" className='bg-[#106580] border border-solid border-[#106580] rounded-[5px] w-full h-11 flex justify-center items-center px-4 xl:px-0 text-white/80 xl:text-foreground' >
+                    Log In
+                  </Link>
+
+
+
+              {/* <Link 
+                href="/" 
+                onClick={handleLogout}
+                className='bg-[#106580] border border-solid border-[#106580] rounded-[5px] w-full h-11 flex justify-center items-center px-4 xl:px-0 text-white/80 xl:text-foreground' >
+                  Logout
+                </Link> */}
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 
 
             </div>

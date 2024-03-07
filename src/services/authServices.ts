@@ -1,5 +1,5 @@
 'use client';
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 interface RegisterUser {
@@ -78,5 +78,30 @@ export const useLoginUser = () => {
   return useMutation({
     mutationKey: ['loginUser'],
     mutationFn: loginUser,
+  })
+}
+
+// Get Login Status
+export const useGetLoginStatus = () => {
+  const getLoginStatus = async () => {
+    const response = await axios.get(`${BACKEND_URL}/api/users/loggedin`)
+    return response.data
+  }
+  return useQuery({
+    queryKey: ['users'],
+    queryFn: getLoginStatus,
+  })
+}
+
+// Logout User
+export const useLogoutUser = () => {
+
+  const logoutUser = async () => {
+    await axios.get(`${BACKEND_URL}/api/users/logout`)
+    return false
+  }
+  return useMutation({
+    mutationKey: ['logoutUser'],
+    mutationFn: logoutUser,
   })
 }

@@ -1,17 +1,23 @@
 'use client';
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useRegisterUser } from "@/services/authServices"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+
+// UI Imports
 import { Card } from "@/components/ui/card";
+import { useToast } from "@/components/ui/use-toast"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { ChevronLeft, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useMobileNavStore } from "@/store/MobileNavStore";
+
+
 
 const FormSchema = z.object({
 name: z
@@ -28,8 +34,9 @@ password: z
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-
+  const { toast } = useToast()
   const {mutateAsync:RegisterMutation, isPending, isSuccess } = useRegisterUser();
+  const setIsOpen = useMobileNavStore().setIsOpen
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -45,10 +52,18 @@ const Register = () => {
     try {
       await RegisterMutation(data);
       console.log("User Registrated Successfully")
+      toast({
+        title: "User Registrated Successfully",
+      })
       router.push('/dashboard')
+      setIsOpen(false)
 
     } catch (error) {
-      console.error("Registration failed", error);
+      toast({
+        variant: "destructive",
+        title: "Registration failed", 
+        description: `${error}`,
+      })
     }
   }
   return (
